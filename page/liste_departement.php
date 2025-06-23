@@ -1,5 +1,5 @@
 <?php 
-// include("function/fonction.php");
+include("function/fonction.php");
 // $dept = getDepartement();
 ?>
 
@@ -16,6 +16,14 @@
     // foreach ($dept as $dp) {
         // echo $dp["dept_name"];
     // }
+
+    $essai = "NOW()";
+    $test = getManager($essai);
+
+    foreach($test as $List)
+    {
+        echo $List["first_name"]," ",$List["last_name"],"<br>";
+    }
     ?>
 </body>
 </html>
