@@ -1,1 +1,14 @@
 Creation des repertoires (ok);
+
+Fonction : (Chiu)
+    - connexion_bd
+    - getDepartement
+    - getManager(dept_no)
+    - getEmploye(dept_no)
+
+Page : (Balou)
+    -Liste_department.php :
+        - Liste_dept_manager.php
+        - Liste_dept_emplyee.php
+
+Isset : (A demain)
