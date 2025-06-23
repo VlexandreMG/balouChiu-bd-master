@@ -7,7 +7,7 @@
         $prompt = "SELECT * FROM departments";
         $result = mysqli_query($base,$prompt);
 
-        $retour = array();
+        $retour = array[];
 
         while ($retour1 = mysqli_fetch_assoc($result)) 
         {
