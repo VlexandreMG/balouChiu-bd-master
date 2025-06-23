@@ -1,9 +1,9 @@
 Creation des repertoires (ok);
 
 Fonction : (Chiu)
-    - connexion_bd
+    - connexion (ok)
     - getDepartement
-    - getManager(dept_no)
+    - getManager(date_maintenant)
     - getEmploye(dept_no)
 
 Page : (Balou)
