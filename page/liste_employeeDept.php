@@ -18,12 +18,17 @@ $listEmp = getEmployees($dept_no);
         <tr>
             <th>Nom</th>
             <th>Prenom</th>
+            <th>Fiche</th>
         </tr>
     <?php 
     foreach ($listEmp as $ls) { ?>
         <tr>
             <td><?php echo $ls['nom'] ?></td>
             <td><?php echo $ls['prenom'] ?></td>
+            <td><form action="fiche_employe.php" method="post">
+                <input type="hidden" name="emp_no" value="<?php echo $ls['emp_no'] ?>">
+                <input type="submit" value="Voir"> 
+            </form></td>
         </tr>
     <?php } ?>
     </table>

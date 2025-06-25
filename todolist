@@ -2,13 +2,23 @@ Creation des repertoires (ok);
 
 Fonction : (Chiu)
     - connexion (ok)
+-Version 1 :
     - getDepartement (ok)
     - getManager(date_maintenant) (ok)
-    - getEmploye(dept_no)
+    - getEmploye(dept_no) (ok)
+
+-Version 2 :
+    - getFicheEmployer(emp_no)
+        - Maka an'ilay emp_no (ok)
+        - Ampifandraisana emp_no an'ilay employe 
+        -  
 
 Page : (Balou)
-    -Liste_department.php :
-        - Liste_dept_manager.php 
-        - Liste_dept_emplyee.php
+-Version 1 :
+    -liste_department.php (ok)
+    -liste_employeeDept.php (ok)
+
+-Version 2 : 
+    -fiche_employe.php     
 
 Isset : (A demain)
