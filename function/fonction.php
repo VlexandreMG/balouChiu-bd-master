@@ -35,5 +35,21 @@
         return $retour;
     }
 
-    
+    function getEmployees($dpt_no)
+    {
+        $base = connexion();
+        $prompt = "SELECT employees.first_name as nom, employees.last_name as prenom FROM employees JOIN dept_emp ON dept_emp.emp_no = employees.emp_no 
+        WHERE dept_emp.dept_no = '%s'";
+        $prompt = sprintf($prompt,$dpt_no);
+        $result = mysqli_query($base,$prompt);
+
+        $retour = array();
+
+        while($retour1 = mysqli_fetch_assoc($result))
+        {
+            $retour[] = $retour1;
+        }
+
+        return $retour;
+    } 
 ?>
