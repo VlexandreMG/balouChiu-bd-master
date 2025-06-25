@@ -2,13 +2,13 @@ Creation des repertoires (ok);
 
 Fonction : (Chiu)
     - connexion (ok)
-    - getDepartement
-    - getManager(date_maintenant)
+    - getDepartement (ok)
+    - getManager(date_maintenant) (ok)
     - getEmploye(dept_no)
 
 Page : (Balou)
     -Liste_department.php :
-        - Liste_dept_manager.php
+        - Liste_dept_manager.php 
         - Liste_dept_emplyee.php
 
 Isset : (A demain)
