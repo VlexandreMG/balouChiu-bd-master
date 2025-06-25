@@ -69,4 +69,8 @@
 
         return $retour;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8081a383bb0cc16d8fad3b7aa4597a67819deddf
 ?>
