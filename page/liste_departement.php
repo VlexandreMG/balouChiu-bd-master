@@ -1,6 +1,7 @@
 <?php 
-include("function/fonction.php");
-// $dept = getDepartement();
+include("../function/fonction.php");
+
+$dept = getDepartement();
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +14,12 @@ include("function/fonction.php");
 <body>
     <h1>Nom de tous les départements :</h1><br> 
     <?php 
-    // foreach ($dept as $dp) {
-        // echo $dp["dept_name"];
-    // }
+     foreach ($dept as $dp) 
+     {
+         echo $dp["dept_name"];
+     }
 
-    $essai = "NOW()";
+    $essai = "d001";
     $test = getManager($essai);
 
     foreach($test as $List)
