@@ -16,7 +16,7 @@ $dept = getDepartement();
     <?php 
      foreach ($dept as $dp) 
      {
-         echo $dp["dept_name"];
+        echo $dp["dept_name"];
      }
 
     $essai = "d001";
