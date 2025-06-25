@@ -23,29 +23,15 @@ $dept = getDepartement();
         
         <?php 
      foreach ($dept as $dp) 
-<<<<<<< HEAD
      { ?>
      <tr>
         <td><?php echo $dp["dept_name"]; ?></td>
-        <td><?php $test = getManager($dp["dept_no"]); echo $test["first_name"]?></td>
+        <td><?php echo getManager($dp["dept_no"])['nom'] ?></td>
+        <td><?php echo getManager($dp["dept_no"])['prenom'] ?></td>
      </tr> 
      <?php } ?>
         
     </table>
-    
-=======
-     {
-        echo $dp["dept_name"];
-     }
 
-    $essai = "d001";
-    $test = getManager($essai);
-
-    foreach($test as $List)
-    {
-        echo $List["first_name"]," ",$List["last_name"],"<br>";
-    }
-    ?>
->>>>>>> 77729c3064eda1b5daa0c90349b72ba25d937078
 </body>
 </html>
