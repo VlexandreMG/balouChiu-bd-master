@@ -69,8 +69,22 @@
 
         return $retour;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 8081a383bb0cc16d8fad3b7aa4597a67819deddf
+    function getHistoriqueSalaries($emp_no)
+    {
+        $base = connexion();
+        $prompt = "SELECT * FROM salaries WHERE emp_no = '%s'";
+        $prompt = sprintf($prompt,$emp_no);
+        $result = mysqli_query($base,$prompt);
+
+        $retour = array();
+
+        while($retour1 = mysqli_fetch_assoc($result))
+        {
+            $retour[] = $retour1;
+        }
+
+        return $retour;
+    }
+
 ?>
