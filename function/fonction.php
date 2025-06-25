@@ -52,4 +52,22 @@
 
         return $retour;
     } 
+
+    function getFicheEmployer($emp_no)
+    {
+        $base = connexion();
+        $prompt = "SELECT * FROM employees WHERE emp_no = '%s'";
+        $prompt = sprintf($prompt,$emp_no);
+        $result = mysqli_query($base,$prompt);
+
+        $retour = array();
+
+        while($retour1 = mysqli_fetch_assoc($result))
+        {
+            $retour = $retour1;
+        }
+
+        return $retour;
+    }
+
 ?>
