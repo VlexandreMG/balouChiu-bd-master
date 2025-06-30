@@ -75,7 +75,9 @@ $salaire = getHistoriqueSalaries($post);
                                     <tr>
                                         <td><?php echo $his['title'] ?></td>
                                         <td><?php echo $his['from_date']?></td>
-                                        <td><?php echo $his['to_date']?></td>
+                                        <td><?php if ($his['to_date'] <= date('Y-m-d')) {
+                                            echo $his['to_date']?></td>
+                                        <?php } ?>
                                     </tr>
                                     <?php } ?>
                                 </tbody>

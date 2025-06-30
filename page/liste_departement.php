@@ -16,16 +16,15 @@ $dept = getDepartement();
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-                <h1 class="h4 mb-0">Liste des départements</h1>
+                <h1 class="h4 mb-0">Liste des noms des départements et des managers</h1>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead class="table-dark">
                             <tr>
-                                <th>Nom département</th>
-                                <th>Nom</th>
-                                <th>Prénom</th>
+                                <th>Départements</th>
+                                <th>Managers</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,8 +36,7 @@ $dept = getDepartement();
                                         <?php echo $dp["dept_name"];?>
                                     </a>
                                 </td>
-                                <td><?php echo getManager($dp["dept_no"])['nom'] ?></td>
-                                <td><?php echo getManager($dp["dept_no"])['prenom'] ?></td>
+                                <td><?php echo getManager($dp["dept_no"])['nom'] ," ", getManager($dp["dept_no"])['prenom']  ?></td>
                             </tr> 
                             <?php } ?>
                         </tbody>

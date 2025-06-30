@@ -1,10 +1,27 @@
 <?php
     require("connexion.php");
 
+    function getNomDepartement($dept_no)
+    {
+        $base = connexion();
+        $prompt = "SELECT dept_name FROM departments WHERE dept_no = '%s'";
+        $prompt = sprintf($prompt,$dept_no);
+        $result = mysqli_query($base,$prompt);
+
+        $retour = array();
+
+        while ($retour1 = mysqli_fetch_assoc($result)) 
+        {
+            $retour = $retour1;
+        }
+
+        return $retour["dept_name"];
+    }
+
     function getDepartement()
     {
         $base = connexion();
-        $prompt = "SELECT * FROM departments";
+        $prompt = "SELECT * FROM departments ORDER BY dept_name ASC";
         $result = mysqli_query($base,$prompt);
 
         $retour = array();

@@ -16,7 +16,7 @@ $listEmp = getEmployees($dept_no);
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-                <h1 class="h4 mb-0">Liste des employés du département</h1>
+                <h1 class="h4 mb-0">Liste des employés du département : <?php echo getNomDepartement($dept_no) ?></h1>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
