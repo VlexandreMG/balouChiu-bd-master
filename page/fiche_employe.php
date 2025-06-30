@@ -11,56 +11,83 @@ $salaire = getHistoriqueSalaries($post);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>Fiche employé</title>
 </head>
 <body>
-    <h1>Fiche d'employée : </h1>
-    <p>Nom : <?php echo $fiche['first_name'] ?></p>
-    <p>Prenom : <?php echo $fiche['last_name'] ?></p>
-    <p>Gendre : <?php echo $fiche['gender'] ?></p>
-    <p>Date de naissance : <?php echo $fiche['birth_date'] ?></p>
-    <p>Date d'embauche : <?php echo $fiche['hire_date'] ?></p>
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Fiche employé</h1>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h3>Informations personnelles</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Nom :</strong> <?php echo $fiche['last_name'] ?></li>
+                            <li class="list-group-item"><strong>Prénom :</strong> <?php echo $fiche['first_name'] ?></li>
+                            <li class="list-group-item"><strong>Genre :</strong> <?php echo $fiche['gender'] ?></li>
+                            <li class="list-group-item"><strong>Date de naissance :</strong> <?php echo $fiche['birth_date'] ?></li>
+                            <li class="list-group-item"><strong>Date d'embauche :</strong> <?php echo $fiche['hire_date'] ?></li>
+                        </ul>
+                    </div>
+                </div>
 
-    <table border=1px>
-        <tr>
-            <th>Salaires </th>
-            <th>From date </th>
-            <th>To date</th>
-        </tr>
-    <?php 
-    foreach ($salaire as $sal) { ?>
-    
-        <tr>
-            <td><?php echo $sal['salary'] ?></td>
-            <td><?php echo $sal['from_date'] ?></td>
-            <td><?php echo $sal['to_date'] ?></td>
-        </tr>
-    <?php }
-    ?>
-    </table>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h3>Historique des salaires</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Salaire</th>
+                                        <th>Date début</th>
+                                        <th>Date fin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($salaire as $sal) { ?>
+                                    <tr>
+                                        <td><?php echo $sal['salary'] ?></td>
+                                        <td><?php echo $sal['from_date'] ?></td>
+                                        <td><?php echo $sal['to_date'] ?></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-    <table border=1px>
-        <tr>
-            <th>Titres</th>
-            <th>From date</th>
-            <th>To date</th>
-        </tr>
-    <?php 
-    foreach ($historique as $his) { ?>
-    
-        <tr>
-            <td><?php echo $his['title'] ?></td>
-            <td><?php echo $his['from_date']?></td>
-            <td><?php echo $his['to_date']?></td>
-        </tr>
-    <?php }
-    ?>
-    </table>
-    
+                    <div class="col-md-6">
+                        <h3>Historique des titres</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Date début</th>
+                                        <th>Date fin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($historique as $his) { ?>
+                                    <tr>
+                                        <td><?php echo $his['title'] ?></td>
+                                        <td><?php echo $his['from_date']?></td>
+                                        <td><?php echo $his['to_date']?></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="liste_employeeDept.php?dept_no=<?php echo $fiche['dept_no'] ?? '' ?>" class="btn btn-secondary">Retour</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-
-
-
-
-            
