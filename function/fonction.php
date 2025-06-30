@@ -104,4 +104,23 @@
         return $retour;
     }
 
+    function formulaire_De_Recherche($departement,$nomEmployer,$ageMin,$ageMax)
+    {
+        $base = connexion();
+        $prompt = "SELECT * FROM employees JOIN dept_emp ON employees.emp_no = dept_emp.emp_no 
+        WHERE dept_emp.dept_no = '%s' AND (employees.first_name = '%s' OR employees.last_name = '%s') AND
+        (SELECT TIMESTAMPDIFF(YEAR,birth_date,CURDATE()) from employees WHERE emp_no = '%s' ) >= '%s' 
+        AND (SELECT TIMESTAMPDIFF(YEAR,birth_date,CURDATE()) from employees WHERE emp_no = '%s') <= '%s'";
+        $prompt = sprintf($prompt,$departement,$nomEmployer,$nomEmployer,$ageMin,$ageMax);
+
+        $retour = array();
+
+        while($retour1 = mysqli_fetch_assoc($result))
+        {
+            $retour[] = $retour1;
+        }
+
+        return $retour;
+    }
+
 ?>
