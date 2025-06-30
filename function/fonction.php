@@ -56,7 +56,7 @@
     {
         $base = connexion();
         $prompt = "SELECT employees.emp_no , employees.first_name as nom, employees.last_name as prenom FROM employees JOIN dept_emp ON dept_emp.emp_no = employees.emp_no 
-        WHERE dept_emp.dept_no = '%s'";
+        WHERE dept_emp.dept_no = '%s' ORDER BY nom,prenom ASC";
         $prompt = sprintf($prompt,$dpt_no);
         $result = mysqli_query($base,$prompt);
 

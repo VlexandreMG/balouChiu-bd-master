@@ -25,8 +25,8 @@ $salaire = getHistoriqueSalaries($post);
                     <div class="col-md-6">
                         <h3>Informations personnelles</h3>
                         <ul class="list-group">
-                            <li class="list-group-item"><strong>Nom :</strong> <?php echo $fiche['last_name'] ?></li>
-                            <li class="list-group-item"><strong>Prénom :</strong> <?php echo $fiche['first_name'] ?></li>
+                            <li class="list-group-item"><strong>Nom :</strong> <?php echo $fiche['first_name'] ?></li>
+                            <li class="list-group-item"><strong>Prénom :</strong> <?php echo $fiche['last_name'] ?></li>
                             <li class="list-group-item"><strong>Genre :</strong> <?php echo $fiche['gender'] ?></li>
                             <li class="list-group-item"><strong>Date de naissance :</strong> <?php echo $fiche['birth_date'] ?></li>
                             <li class="list-group-item"><strong>Date d'embauche :</strong> <?php echo $fiche['hire_date'] ?></li>
