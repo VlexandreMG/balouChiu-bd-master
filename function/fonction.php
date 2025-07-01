@@ -121,23 +121,65 @@
         return $retour;
     }
 
-    function formulaire_De_Recherche($departement,$nomEmployer,$ageMin,$ageMax)
-    {
+    // function getAge($emp_name){
+    //     $base = connexion();
+    //     $prompt = "SELECT TIMESTAMPDIFF(YEAR,birth_date,CURDATE()) as age from employees WHERE first_name = 'Aamer'";
+    //     $prompt = sprintf($prompt,$emp_name,$emp_name);
+    //     $result = mysqli_query($base,$prompt);
+
+    //     $resultat = mysqli_fetch_assoc($result);
+
+    //     return $resultat;
+    // }
+
+    // function formulaireRecherche($emp_name,$dept_no,$ageMin,$ageMax) {
+
+    //     $ami = getAge($emp_name);
+    //     $base = connexion();
+    //     if($ami >= $ageMin && $ami <= $ageMax) {
+    //         $prompt = "SELECT * FROM employees 
+    //         JOIN dept_emp ON employees.emp_no = dept_emp.emp_no AND
+    //         (employees.first_name LIKE '%%s%' OR employees.last_name LIKE '%%s%')";
+            
+    //         $prompt = sprintf($prompt,$emp_name,$emp_name);
+    //         $result = mysqli_query($base,$prompt);
+
+    //         $retour = array();
+
+    //         while($retour1 = mysqli_fetch_assoc($result))
+    //         {
+    //             $retour[] = $retour1;
+    //         }
+            
+    //         return $retour;
+    //     }
+    //     return null;
+        
+    // }
+
+    function formulaireRecherche($dept_name,$emp_name,$ageMin,$ageMax) {
         $base = connexion();
-        $prompt = "SELECT * FROM employees JOIN dept_emp ON employees.emp_no = dept_emp.emp_no 
-        WHERE dept_emp.dept_no = '%s' AND (employees.first_name = '%s' OR employees.last_name = '%s') AND
-        (SELECT TIMESTAMPDIFF(YEAR,birth_date,CURDATE()) from employees WHERE emp_no = '%s' ) >= '%s' 
-        AND (SELECT TIMESTAMPDIFF(YEAR,birth_date,CURDATE()) from employees WHERE emp_no = '%s') <= '%s'";
-        $prompt = sprintf($prompt,$departement,$nomEmployer,$nomEmployer,$ageMin,$ageMax);
+
+        $dept_name = '%' . $dept_name . '%';
+        $emp_name = '%' . $emp_name . '%';
+
+        $prompt = "SELECT * FROM employees 
+        JOIN dept_emp ON employees.emp_no = dept_emp.emp_no 
+        JOIN departments ON departments.dept_no = dept_emp.dept_no
+        WHERE departments.dept_name LIKE '%s' 
+        AND employees.first_name LIKE '%s' 
+        AND TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) BETWEEN %s AND %s";
+        $prompt = sprintf($prompt, $dept_name, $emp_name, $ageMin, $ageMax);
+
+        $resultat = mysqli_query($base,$prompt);
 
         $retour = array();
 
-        while($retour1 = mysqli_fetch_assoc($result))
+        while($retour1 = mysqli_fetch_assoc($resultat))
         {
             $retour[] = $retour1;
         }
-
+            
         return $retour;
     }
-
 ?>
