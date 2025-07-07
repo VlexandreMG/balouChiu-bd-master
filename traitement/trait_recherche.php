@@ -1,14 +1,18 @@
 <?php 
 include('../function/fonction.php');
 
-$dept = $_POST['departement'];
-$name = $_POST['nom'];
+    lienDeptEmp();
+
+$Nom = $_POST['nom'];
 $ageMin = $_POST['ageMin'];
 $ageMax = $_POST['ageMax'];
+$dep_no = $_POST['departement'];
 
-$test = formulaireRecherche($dept,$name,$ageMin,$ageMax);
-//var_dump($test);
-foreach ($test as $key) {
-    echo $key['first_name'];
+$liste = recherche($Nom,$ageMin,$ageMax,$dep_no);
+
+foreach($liste as $lt)
+{
+    echo $lt['nom'] ;
 }
+
 ?>
