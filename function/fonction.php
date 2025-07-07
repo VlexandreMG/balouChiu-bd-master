@@ -161,4 +161,48 @@
 
     }
 
+    function EmployeeDepCurrent() {
+
+        $base = connexion();
+
+        $prompt = 
+        "CREATE or REPLACE VIEW v_employees_departments_current AS
+        SELECT * from v_lienDepEmp
+        WHERE to_date = '9999-01-01'";
+        
+        $result = mysqli_query($base,$prompt);
+    }
+
+    function ViewNbEmployee() {
+
+        $base = connexion();
+
+        $prompt = 
+        "CREATE or REPLACE VIEW v_employees_departments_count AS
+        SELECT COUNT(*) nbEmployees,dept_no  
+        FROM v_employees_departments_current 
+        GROUP BY dept_no";
+
+        $result = mysqli_query($base,$prompt);
+    }
+    
+    function getDepartement_And_NbEmployee() {
+        $base = connexion();
+
+        $prompt = 
+        "SELECT de.dept_no , de.dept_name ,v_emp.nbEmployees FROM departments de
+        JOIN v_employees_departments_count v_emp ON de.dept_no = v_emp.dept_no   
+        ORDER BY dept_name ASC";
+
+        $result = mysqli_query($base,$prompt);
+
+        $retour = array();
+
+        while($retour1 = mysqli_fetch_assoc($result))
+        {
+        $retour[] = $retour1;
+        }
+
+        return $retour;
+    }
 ?>

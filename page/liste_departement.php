@@ -1,7 +1,7 @@
 <?php 
 include("../function/fonction.php");
 
-$dept = getDepartement();
+$dept = getDepartement_And_NbEmployee();
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +31,7 @@ $dept = getDepartement();
                             <tr>
                                 <th>Départements</th>
                                 <th>Managers</th>
+                                <th>Nombre employés</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,7 @@ $dept = getDepartement();
                                     </a>
                                 </td>
                                 <td><?php echo getManager($dp["dept_no"])['nom'] ," ", getManager($dp["dept_no"])['prenom']  ?></td>
+                                <td><?php echo $dp["nbEmployees"] ?></td>
                             </tr> 
                             <?php } ?>
                         </tbody>
