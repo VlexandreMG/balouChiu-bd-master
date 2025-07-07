@@ -11,7 +11,8 @@ $dept = getDepartement();
     <title>Document</title>
 </head>
 <body>
-    <form action="../traitement/trait_recherche.php" method="post">
+
+    <form action="result_recherche.php" method="post">
         <select name="departement">
             <?php foreach ($dept as $dep) { ?>
                 <option value="<?php echo $dep['dept_no'] ?>"><?php echo $dep['dept_name'] ?></option>
@@ -23,5 +24,6 @@ $dept = getDepartement();
         <input type="number" name="ageMax">
         <input type="submit" value="Recherche">
     </form>
+
 </body>
 </html>
