@@ -56,5 +56,9 @@ $dept = getDepartement_And_NbEmployee();
             </div>
         </div>
     </div>
+
+    <a href="salaire_moyen.php" class="btn btn-primary">
+                    <i class="bi bi-arrow-left"></i> Salaire moyen
+                </a>
 </body>
 </html>

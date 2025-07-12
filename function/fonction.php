@@ -205,4 +205,26 @@
 
         return $retour;
     }
+
+    function getTitles_by_gender_and_salaries() {
+        $base = connexion();
+
+        $prompt = 
+        "SELECT ti.title titre , COUNT(emp.gender) Nbemployees , AVG(sal.salary) salaire 
+        FROM employees emp
+        JOIN titles ti ON emp.emp_no = ti.emp_no
+        JOIN salaries sal ON emp.emp_no = sal.emp_no
+        GROUP BY ti.title";
+
+        $result = mysqli_query($base,$prompt);
+
+        $retour = array();
+
+        while($retour1 = mysqli_fetch_assoc($result))
+        {
+        $retour[] = $retour1;
+        }
+
+        return $retour;
+    }
 ?>
