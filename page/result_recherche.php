@@ -8,6 +8,10 @@ $ageMin = $_POST['ageMin'];
 $ageMax = $_POST['ageMax'];
 $dep_no = $_POST['departement'];
 
+if ($Nom == null || $ageMin == null || $ageMax == null) {
+    header('Location: message_erreur_recherche.php');
+}
+
 $liste = recherche($Nom,$ageMin,$ageMax,$dep_no);
 
 ?>
@@ -19,7 +23,7 @@ $liste = recherche($Nom,$ageMin,$ageMax,$dep_no);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résultats de recherche</title>
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
+
 </head>
 <body>
     <div class="container mt-5">
